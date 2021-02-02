@@ -11,8 +11,9 @@ const publisher = redis.createClient(redisConf);
 (async () => {
   while (true) {
     const user = 'elonmusk';
-    console.log(`Collect last tweet from @${user}`);
+    console.log(`Collecting latest @${user} tweet...`);
     const data = await crawler(user);
+    console.log(`Sending latest @${user} tweet`);
     const message = `@${user} tweetou: ${data[0].tweet}`;
     publisher.publish(user, JSON.stringify(message));
   }
