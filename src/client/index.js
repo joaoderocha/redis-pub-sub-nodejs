@@ -9,4 +9,5 @@ subscriber.on('message', (channel, message) => {
   console.log(`channel ${channel} recebeu ${message}`);
 });
 
-subscriber.subscribe('teste');
+const user = 'elonmusk';
+subscriber.subscribe(user);

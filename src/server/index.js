@@ -1,15 +1,19 @@
 'use strict';
 
-const sleep = require('../utils/time');
 const redis = require('redis');
+
+// const sleep = require('../utils/time');
+const crawler = require('../utils/crawler');
 
 const redisConf = require('../config/redisConf');
 const publisher = redis.createClient(redisConf);
 
 (async () => {
   while (true) {
-    console.log('sending...');
-    publisher.publish('teste', JSON.stringify('Hello'));
-    await sleep(2000);
+    const user = 'elonmusk';
+    console.log(`Collect last tweet from @${user}`);
+    const data = await crawler(user);
+    const message = `@${user} tweetou: ${data[0].tweet}`;
+    publisher.publish(user, JSON.stringify(message));
   }
 })();

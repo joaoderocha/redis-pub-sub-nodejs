@@ -26,6 +26,7 @@
   "homepage": "https://github.com/joaoderocha/redis-pub-sub-nodejs#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
+    "puppeteer": "^6.0.0",
     "redis": "^3.0.2"
   },
   "devDependencies": {
