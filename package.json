@@ -4,6 +4,8 @@
   "description": "Simple client server application using redis with his cache and pub/sub services. ",
   "main": "index.js",
   "scripts": {
+    "server": "node headless/cli/server.js",
+    "client": "node headless/cli/client.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
