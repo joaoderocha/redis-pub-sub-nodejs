@@ -1,0 +1,25 @@
+{
+  "name": "redis-pub-sub-nodejs",
+  "version": "1.0.0",
+  "description": "Simple client server application using redis with his cache and pub/sub services. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joaoderocha/redis-pub-sub-nodejs.git"
+  },
+  "keywords": [
+    "redis",
+    "client",
+    "server",
+    "pub/sub"
+  ],
+  "author": "joao araujo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joaoderocha/redis-pub-sub-nodejs/issues"
+  },
+  "homepage": "https://github.com/joaoderocha/redis-pub-sub-nodejs#readme"
+}
