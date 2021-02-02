@@ -6,4 +6,4 @@ module.exports = function sleep(tempo) {
       resolve(tempo);
     }, tempo);
   });
-}
+};
