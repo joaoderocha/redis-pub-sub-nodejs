@@ -1,14 +1,13 @@
-'use strict';
+'use strict'
 
-const { services: {pubSub: {subscribe}} } = require('../redis');
+const { services: { pubSub: { subscribe } } } = require('../redis')
 
-
-function action(channel, message) {
-  console.log(`channel ${channel} recebeu ${message}`)
+const action = (channel, message) => {
+  console.log(`channel ${channel} received ${message}`)
 }
 
-subscribe('teste', action);
+subscribe('test', action)
 
-console.log("rodei tbm e nao bloqueei");
+console.log('rodei tbm e nao bloqueei')
 
-subscribe('outroCanal', action)
+subscribe('otherChannel', action)
