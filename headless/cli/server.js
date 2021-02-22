@@ -6,8 +6,8 @@ const sleep = require('../utils/time')
 const publishing = async () => {
   while (true) {
     console.log('sending...')
-    publish('teste', JSON.stringify('Hello'))
-    publish('outroCanal', JSON.stringify('Hello 2'))
+    publish('test', JSON.stringify('Hello'))
+    publish('otherChannel', JSON.stringify('Hello 2'))
     await sleep(2000)
   }
 }

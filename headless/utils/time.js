@@ -1,9 +1,9 @@
 'use strict'
 
-module.exports = async (tempo) => (
+module.exports = async (time) => (
   new Promise((resolve) => {
     setTimeout(() => {
-      resolve(tempo)
-    }, tempo)
+      resolve(time)
+    }, time)
   })
 )
