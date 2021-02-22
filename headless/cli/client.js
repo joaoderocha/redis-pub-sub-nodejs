@@ -3,7 +3,7 @@
 const { services: { pubSub: { subscribe } } } = require('../redis')
 
 const action = (channel, message) => {
-  console.log(`channel ${channel} receive ${message}`)
+  console.log(`channel ${channel} received ${message}`)
 }
 
 subscribe('test', action)
