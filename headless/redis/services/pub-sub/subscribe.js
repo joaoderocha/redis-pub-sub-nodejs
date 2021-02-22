@@ -1,6 +1,6 @@
 'use strict';
 
-const { redisClient, subscriptionMap }= require('./connect');
+const { redisClient, subscriptionMap }= require('../../connection');
 
 exports.subscribe = async function subscribe(canal, acao) {
   subscriptionMap.set(canal, acao);

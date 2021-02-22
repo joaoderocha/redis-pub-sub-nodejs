@@ -1,16 +1,15 @@
 'use strict';
 
 const sleep = require('../utils/time');
-const redis = require('redis');
-const redisConf = require('../redisConf.json');
-const publisher  = redis.createClient(redisConf);
 
+const { publish } = require('../redis/services/pub-sub/publish')
 
 
 async function publishing() {
   while (true) {
     console.log("sending...");
-    publisher.publish('teste', JSON.stringify("Hello"));
+    publish('teste', JSON.stringify("Hello"));
+    publish('outroCanal', JSON.stringify("Hello 2"));
     await sleep(2000);
   }
 }

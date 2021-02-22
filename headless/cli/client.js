@@ -1,11 +1,14 @@
 'use strict';
 
-const redis = require('redis');
-const redisConf = require('../redisConf.json');
-const subscriber = redis.createClient(redisConf);
+const { services: {pubSub: {subscribe}} } = require('../redis');
 
-subscriber.on('message', (channel, message) => {
-  console.log(`channel ${channel} recebeu ${message}`);
-})
 
-subscriber.subscribe('teste');
+function action(channel, message) {
+  console.log(`channel ${channel} recebeu ${message}`)
+}
+
+subscribe('teste', action);
+
+console.log("rodei tbm e nao bloqueei");
+
+subscribe('outroCanal', action)
