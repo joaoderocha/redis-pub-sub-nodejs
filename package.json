@@ -4,8 +4,8 @@
   "description": "Simple client server application using redis with his cache and pub/sub services. ",
   "main": "index.js",
   "scripts": {
-    "server": "node src/server/index.js",
-    "client": "node src/client/index.js",
+    "server": "node -r dotenv/config headless/cli/server.js",
+    "client": "node -r dotenv/config headless/cli/client.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,11 +26,13 @@
   "homepage": "https://github.com/joaoderocha/redis-pub-sub-nodejs#readme",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "puppeteer": "^6.0.0",
     "redis": "^3.0.2"
   },
   "devDependencies": {
-    "eslint": "^7.19.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint": "^7.20.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1"
   }
 }
