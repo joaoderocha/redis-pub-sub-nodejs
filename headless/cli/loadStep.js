@@ -1,6 +1,6 @@
 'use strict';
 
-const { services: {pubSub:{subscribe}}, redisClient } = require('../redis');
+const { services: {pubSub:{publish}}, redisClient } = require('../redis');
 const {getJsonsFromFile, readBibleCap, termClean, getRoundRobinIndex} = require('../utils');
 
 
