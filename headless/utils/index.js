@@ -1,6 +1,6 @@
-'use strict';
+'use strict'
 
 module.exports = {
   ...require('./time'),
-  ...require('./process'),
+  ...require('./process')
 }

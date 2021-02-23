@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
-const { redisClient }= require('../../connection');
+const { redisClient } = require('../../connection')
 
-exports.publish =async function publish(channel, mensagem) {
+exports.publish = async (channel, message) => {
   return new Promise((resolve, reject) => {
     try {
-      resolve(redisClient.publish(channel, JSON.stringify(mensagem)));
+      resolve(redisClient.publish(channel, JSON.stringify(message)))
     } catch (error) {
-      reject(error);
+      reject(error)
     }
-  });  
+  })
 }

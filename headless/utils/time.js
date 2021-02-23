@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-module.exports = function sleep(tempo) {
-  return new Promise((resolve) => {
+module.exports = async (time) => (
+  new Promise((resolve) => {
     setTimeout(() => {
-      resolve(tempo);
-    }, tempo);
-  });
-}
+      resolve(time)
+    }, time)
+  })
+)

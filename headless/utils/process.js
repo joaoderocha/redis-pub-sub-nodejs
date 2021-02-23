@@ -1,5 +1,3 @@
-'use strict';
+'use strict'
 
-exports.getProcessArgs = function getProcessArgs() {
-  return process.argv.slice(2);
-}
+module.exports = () => process.argv.slice(2)
