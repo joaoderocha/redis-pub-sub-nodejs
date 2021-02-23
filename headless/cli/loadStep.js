@@ -23,7 +23,7 @@ async function loadStep() {
 
         console.log(termClean(roundRobinIndex), message);
 
-        publish(termClean(roundRobinIndex), message);
+        await publish(termClean(roundRobinIndex), message);
         index++;
       }
     }
