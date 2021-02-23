@@ -2,7 +2,6 @@
 
 const { publish } = require('../redis/services/pub-sub');
 const {getJsonsFromFile, readBibleCap, termClean} = require('../utils');
-const readBibleCap = require('../utils');
 
 
 async function loadStep() {
