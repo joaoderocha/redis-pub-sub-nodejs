@@ -2,9 +2,9 @@
 
 const prefixes = {
   LOAD: 'load',
-  TERM_CLEAN: 'term_clean',
-  WORD_CLEAN: 'word_clean',
-  WORD_COUNT: 'word_count',
+  TERMCLEAN: 'termClean',
+  WORDCLEAN: 'wordClean',
+  WORDCOUNT: 'wordCount',
   REDUCE: 'reduce',
 }
 
@@ -14,20 +14,30 @@ function addSufix(string, index) {
 }
 
 const step = {
+  load(roundRobinIndex){
+    return addSufix(prefixes.TERMCLEAN,roundRobinIndex);
+  },
   termClean(roundRobinIndex){
-    return addSufix(prefixes.TERM_CLEAN,roundRobinIndex);
+    return addSufix(prefixes.WORDCLEAN, roundRobinIndex);
   },
   wordClean(roundRobinIndex){
-    return addSufix(prefixes.WORD_COUNT, roundRobinIndex);
+    return addSufix(prefixes.WORDCOUNT, roundRobinIndex);
   },
   wordCound(roundRobinIndex){
-    return addSufix(prefixes.WORD_COUNT, roundRobinIndex);
+    return addSufix(prefixes.REDUCE, roundRobinIndex);
   },
   reducer(roundRobinIndex){
-    return addSufix(prefixes.REDUCE, roundRobinIndex);
+    return addSufix(prefixes.LOAD, roundRobinIndex);
   }
 }
 
+function getNextStep(currentStep) {
+  const [currentStep, sufixo] = currentStep.split('_');
+
+  return step[currentStep](sufixo);
+}
+
 module.exports = {
-  ...step
+  ...step,
+  getNextStep,
 }
