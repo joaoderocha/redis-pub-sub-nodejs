@@ -5,5 +5,5 @@ const path = require('path');
 
 exports.getJsonsFromFile = async function getJsonsFromFile() {
   const dirPath = path.join('resources', 'biblia_acf');
-  return fs.readdir(dirPath).map((filePath) => path.join(dirPath,filePath));  
+  return fs.readdirSync(dirPath).map((filePath) => filePath = path.join(dirPath,filePath));  
 }

@@ -8,16 +8,19 @@ async function loadStep() {
 
     const filePaths =  await getJsonsFromFile();
     
-    const linhas = await readBibleCap(filePaths);
-
-    for (const linha of linhas) {
+    for (const filePath of filePaths) {
       
-      const message = {
-        linha,
-        queueIndex: roundRobinIndex,
+      const linhas = await readBibleCap(filePath);
+      
+      for (const linha of linhas) {
+        
+        const message = {
+          linha,
+          queueIndex: roundRobinIndex,
+        }
+        
+        publish(termClean(roundRobinIndex), message);
       }
-
-      publish(termClean(roundRobinIndex), message);
     }
 }
 

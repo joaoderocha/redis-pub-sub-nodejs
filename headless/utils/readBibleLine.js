@@ -1,7 +1,8 @@
 'use strict';
 
+
 exports.readBibleCap = function readBibleCap(filePath) {
-  const jsonFile = require(filePath);
+  const jsonFile = require('../../'+filePath);
 
   return jsonFile.reduce((acc,capitulo) => {
     const versiculos = Object.values(capitulo)
