@@ -7,4 +7,5 @@ module.exports = {
   ...require('./get-jsons-from-resource'),
   ...require('./readBibleLine'),
   ...require('./round-robin'),
+  ...require('./message-builder'),
 }
