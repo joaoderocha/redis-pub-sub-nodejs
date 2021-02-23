@@ -1,10 +1,23 @@
 'use strict';
 
-const {services:{pubSub:{subscribe}}} = require('../redis');
-const {termClean} = require('../utils')
+const {services:{pubSub:{subscribe, publish}}} = require('../redis');
+const {termClean, messageBuilder, roundRobinSize} = require('../utils')
 
-subscribe(termClean(1), action)
 
 function action(channel, message) {
-  console.log(`${channel} e linha: ${message}`);
+  const {linha, queueIndex} = message;
+
+  const linhaLimpa = cleanTerms(linha);
+
+  const message = messageBuilder(linhaLimpa, queueIndex);
+
+  publish(channel, message);
+}
+
+function cleanTerms(linha) {
+  return linha.normalize('NFD');
+}
+
+for (let index = 1; index <= roundRobinSize; index++) {
+  subscribe(termClean(index), action)
 }
