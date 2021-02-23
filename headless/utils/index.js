@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = {
-  ...require('./time'),
+  sleep: require('./time'),
   ...require('./process'),
   ...require('./resolves-channel'),
   ...require('./get-jsons-from-resource'),

@@ -1,7 +1,7 @@
 'use strict';
 
 const { services: {pubSub:{publish}}, redisClient } = require('../redis');
-const {getJsonsFromFile, readBibleCap, termClean, getRoundRobinIndex} = require('../utils');
+const {getJsonsFromFile, readBibleCap, termClean, getRoundRobinIndex,sleep} = require('../utils');
 
 
 async function loadStep() {
@@ -24,6 +24,7 @@ async function loadStep() {
         console.log(termClean(roundRobinIndex), message);
 
         publish(termClean(roundRobinIndex), message);
+        sleep(2000);
         index++;
       }
     }
