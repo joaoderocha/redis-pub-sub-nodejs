@@ -14,9 +14,11 @@ async function loadStep() {
       
       for (const linha of linhas) {
         
+        const roundRobinIndex = getRoundRobinIndex(index)
+
         const message = {
           linha,
-          queueIndex: getRoundRobinIndex(index),
+          queueIndex: roundRobinIndex,
         }
         
         publish(termClean(roundRobinIndex), message);
