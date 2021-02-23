@@ -7,7 +7,7 @@
     "server": "node -r dotenv/config headless/cli/server.js",
     "client": "node -r dotenv/config headless/cli/client.js",
     "load": "node -r dotenv/config headless/cli/loadStep.js",
-    "clean": "node -r dotend/config headless/cli/cleanStep.js",
+    "clean": "node -r dotenv/config headless/cli/cleanStep.js",
     "lint": "prettier --write . && eslint --fix .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
