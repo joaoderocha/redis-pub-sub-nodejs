@@ -1,7 +1,5 @@
 'use strict';
 
-const { WORDCOUNT } = require(".");
-
 const prefixes = {
   LOAD: 'load',
   TERMCLEAN: 'termClean',
