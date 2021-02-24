@@ -6,6 +6,7 @@ const {messageBuilder, getNextStep, roundRobinSubscribe, TERMCLEAN} = require('.
 function termCleanStep(channel, message) {
   const {linha, queueIndex} = message;
 
+  console.log(message);
   const linhaSemAcentos = cleanTerms(linha);
 
   const linhaLimpa = cleanPunctuation(linhaSemAcentos);

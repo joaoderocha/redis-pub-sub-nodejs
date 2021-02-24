@@ -10,6 +10,7 @@ function wordCounterStep(channel, message) {
 
     const msg = messageBuilder(result, queueIndex);
 
+    console.log(msg);
     publish(getNextStep(channel), msg);
 }
 
