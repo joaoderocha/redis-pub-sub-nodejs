@@ -1,19 +1,19 @@
 'use strict';
 
-const { getPreviousStep } = require("./resolves-channel");
+const { subscribe } = require('../redis/services/pub-sub');
 
-const indexSize = 1
+const { getPreviousStep } = require('./resolves-channel');
+
+const indexSize = 1;
 
 exports.getRoundRobinIndex = function getRoundRobinIndex(index) {
   return index % indexSize + 1;
-}
+};
 
 function roundRobinSubscribe(currentStep, action) {
-
-  for (let index = 1; index <= roundRobinSize; index++) {
-    subscribe(getPreviousStep(currentStep), action);
+  for (let index = 1; index <= indexSize; index+=1) {
+    subscribe(getPreviousStep(`${currentStep}_${index}`), action);
   }
-
 }
 
 exports.roundRobinSize = indexSize;

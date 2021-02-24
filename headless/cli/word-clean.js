@@ -1,31 +1,31 @@
 'use strict';
 
-const { publish, subscribe } = require("../redis/services/pub-sub");
-const { messageBuilder, getNextStep, roundRobinSize, roundRobinSubscribe, WORDCLEAN } = require("../utils");
+const { publish} = require('../redis/services/pub-sub');
+const { messageBuilder, getNextStep, roundRobinSubscribe, WORDCLEAN } = require('../utils');
 
 function wordCleanStep(channel, message) {
   const {linha, queueIndex} = message;
 
   const novaLinha = removeStopWords(linha);
 
-  const message = messageBuilder(novaLinha, queueIndex);
+  const msg = messageBuilder(novaLinha, queueIndex);
 
-  publish(getNextStep(channel), message);
+  publish(getNextStep(channel), msg);
 }
 
 const stopWords = [
   'de' ,
 'a ',
 'o ',
-'que ', 
+'que ',
 'e ',
 'do ',
 'da ',
 'em ',
 'um ',
-'para', 
+'para',
 'é ',
-'com', 
+'com',
 'não ',
 'uma ',
 'os ',
@@ -44,27 +44,27 @@ const stopWords = [
 'das ',
 'tem ',
 'à ',
-'seu', 
+'seu',
 'sua ',
 'ou ',
 'ser ',
-'quando', 
+'quando',
 'muito ',
 'há ',
 'nos ',
 'já ',
-'está', 
+'está',
 'eu ',
-'também', 
+'também',
 'só ',
-'pelo', 
+'pelo',
 'pela ',
 'até ',
 'isso ',
 'ela ',
-'entre', 
+'entre',
 'era ',
-'depois', 
+'depois',
 'sem ',
 'mesmo ',
 'aos ',
@@ -73,7 +73,7 @@ const stopWords = [
 'quem ',
 'nas ',
 'me ',
-'esse', 
+'esse',
 'eles ',
 'estão ',
 'você ',
@@ -95,9 +95,9 @@ const stopWords = [
 'qual ',
 'será ',
 'nós ',
-'tenho', 
+'tenho',
 'lhe ',
-'deles', 
+'deles',
 'essas ',
 'esses ',
 'pelas ',
@@ -115,7 +115,7 @@ const stopWords = [
 'tua',
 'teus',
 'tuas',
-'nosso', 
+'nosso',
 'nossa',
 'nossos',
 'nossas',
@@ -129,7 +129,7 @@ const stopWords = [
 'aqueles ',
 'aquelas ',
 'isto ',
-'aquilo', 
+'aquilo',
 'estou',
 'está',
 'estamos',
@@ -234,12 +234,10 @@ const stopWords = [
 'teria',
 'teríamos',
 'teriam',
-]
+];
 
 function removeStopWords(linha) {
-  const novaLinha = new String(linha);
-
-  return novaLinha.split(' ').reduce((acc,palavra) => {
+  return linha.split(' ').reduce((acc,palavra) => {
     if (!stopWords.includes(palavra)) {
       acc.push(palavra);
     }

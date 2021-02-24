@@ -1,20 +1,23 @@
-'use strict'
+'use strict';
 
-const redis = require('redis')
-const redisConfig = require('../config/redis')
-const redisClient = redis.createClient(redisConfig)
+const redis = require('redis');
 
-const subscriptionMap = new Map()
+const redisConfig = require('../config/redis');
+const redisClient = redis.createClient(redisConfig);
+
+const subscriptionMap = new Map();
 
 redisClient.on('message', async (channel, message) => {
-  const action = subscriptionMap.get(channel)
+  const action = subscriptionMap.get(channel);
 
-  if (!action) return
+  if (!action) {
+return;
+}
 
-  await action(channel, message)
-})
+  await action(channel, message);
+});
 
 module.exports = {
   redisClient,
   subscriptionMap
-}
+};

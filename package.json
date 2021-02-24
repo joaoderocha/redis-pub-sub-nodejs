@@ -4,12 +4,12 @@
   "description": "Simple client server application using redis with his cache and pub/sub services. ",
   "main": "index.js",
   "scripts": {
-    "load": "node -r dotenv/config headless/cli/loadStep.js",
-    "clean": "node -r dotenv/config headless/cli/cleanStep.js",
-    "word-clean": "node -r dotenv/config headless/cli/wordClean.js",
+    "load": "node -r dotenv/config headless/cli/load-step.js",
+    "clean": "node -r dotenv/config headless/cli/clean-step.js",
+    "word-clean": "node -r dotenv/config headless/cli/word-clean.js",
     "lint": "prettier --write . && eslint --fix .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "word-counter": "node -r dotenv/config headless/cli/wordCounterStep.js"
+    "word-counter": "node -r dotenv/config headless/cli/word-counter-step.js"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,8 @@
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1"
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-security": "^1.4.0",
+    "eslint-plugin-unicorn": "^28.0.2"
   }
 }

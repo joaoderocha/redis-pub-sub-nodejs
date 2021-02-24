@@ -11,7 +11,7 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/headless/cli/loadStep.js"
+      "program": "${workspaceFolder}/headless/cli/word-counter-step.js"
     }
   ]
 }

@@ -42,7 +42,7 @@
       "jsx-quotes": "error",
       "key-spacing": "off",
       "keyword-spacing": "off",
-      "linebreak-style": ["error", "unix"],
+      "linebreak-style": "off",
       "lines-around-directive": "error",
       "lines-between-class-members": "error",
       "max-depth": "error",

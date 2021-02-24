@@ -1,3 +1,3 @@
-'use strict'
+'use strict';
 
-module.exports = () => process.argv.slice(2)
+module.exports = () => process.argv.slice(2);

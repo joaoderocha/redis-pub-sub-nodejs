@@ -6,13 +6,11 @@ const prefixes = {
   WORDCLEAN: 'wordClean',
   WORDCOUNT: 'wordCount',
   REDUCE: 'reduce',
-}
-
+};
 
 function addSufix(string, index) {
   return `${string}_${index}`;
 }
-
 
 const nextStep = {
   load(roundRobinIndex){
@@ -24,13 +22,13 @@ const nextStep = {
   wordClean(roundRobinIndex){
     return addSufix(prefixes.WORDCOUNT, roundRobinIndex);
   },
-  wordCound(roundRobinIndex){
+  wordCount(roundRobinIndex){
     return addSufix(prefixes.REDUCE, roundRobinIndex);
   },
   reducer(roundRobinIndex){
     return addSufix(prefixes.LOAD, roundRobinIndex);
   }
-}
+};
 
 const previousStep = {
   load(roundRobinIndex){
@@ -42,24 +40,24 @@ const previousStep = {
   wordClean(roundRobinIndex){
     return addSufix(prefixes.TERMCLEAN, roundRobinIndex);
   },
-  wordCound(roundRobinIndex){
+  wordCount(roundRobinIndex){
     return addSufix(prefixes.WORDCLEAN, roundRobinIndex);
   },
   reducer(roundRobinIndex){
     return addSufix(prefixes.WORDCOUNT, roundRobinIndex);
   }
-}
+};
 
 function getNextStep(currentStep) {
-  const [currentStep, sufixo] = currentStep.split('_');
+  const [currStep, sufixo] = currentStep.split('_');
 
-  return nextStep[currentStep](sufixo);
+  return nextStep[currStep](sufixo);
 }
 
 function getPreviousStep(currentStep) {
-  const [currentStep, sufixo] = currentStep.split('_');
+  const [currStep, sufixo] = currentStep.split('_');
 
-  return previousStep[currentStep](sufixo)
+  return previousStep[currStep](sufixo);
 }
 
 module.exports = {
@@ -67,4 +65,4 @@ module.exports = {
   getNextStep,
   ...prefixes
 
-}
+};
