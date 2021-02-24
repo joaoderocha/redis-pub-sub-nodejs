@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Simple client server application using redis with his cache and pub/sub services. ",
   "main": "index.js",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "load": "node -r dotenv/config headless/cli/load-step.js",
     "clean": "node -r dotenv/config headless/cli/clean-step.js",
