@@ -1,9 +1,9 @@
 'use strict';
 
 const { publish, subscribe } = require("../redis/services/pub-sub");
-const { messageBuilder, getNextStep, roundRobinSize, } = require("../utils");
+const { messageBuilder, getNextStep, roundRobinSize, roundRobinSubscribe, WORDCLEAN } = require("../utils");
 
-function wordClean(channel, message) {
+function wordCleanStep(channel, message) {
   const {linha, queueIndex} = message;
 
   const novaLinha = removeStopWords(linha);
@@ -247,6 +247,5 @@ function removeStopWords(linha) {
     return acc;
   },[]).join(' ');
 }
-for (let index = 1; index <= roundRobinSize; index++) {
-  subscribe(wordClean(index), action)
-}
+
+roundRobinSubscribe(WORDCLEAN, wordCleanStep);
