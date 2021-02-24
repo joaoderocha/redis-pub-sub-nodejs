@@ -1,6 +1,6 @@
 {
   "name": "@joaoderocha/redis-pub-sub-nodejs",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Simple client server application using redis with his cache and pub/sub services. ",
   "main": "headless/index.js",
   "publishConfig": {
