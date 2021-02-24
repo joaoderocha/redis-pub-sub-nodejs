@@ -5,6 +5,7 @@ const redis = require('redis');
 const redisConfig = require('../config/redis');
 const redisClientSub = redis.createClient(redisConfig);
 const redisClientPub = redis.createClient(redisConfig);
+const redisClientCache = redis.createClient(redisConfig);
 
 const subscriptionMap = new Map();
 
@@ -23,5 +24,6 @@ const data = JSON.parse(message);
 module.exports = {
   redisClientPub,
   redisClientSub,
+  redisClientCache,
   subscriptionMap
 };
