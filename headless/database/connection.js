@@ -4,6 +4,8 @@ const { MongoClient } = require('mongodb');
 
 let client, db;
 
+const changeStreamMap = {};
+
 async function connect() {
   if (client && client.isConnected()) {
     return true;
@@ -26,8 +28,19 @@ function getDB() {
   return db;
 }
 
+function subscribeChanges(pipeline = [], options = {}) {
+  const collection = getDB().collection('ReduceStep');
+
+  const stream = collection.watch(pipeline, options);
+
+  changeStreamMap['ReduceStep'] = stream;
+
+  return changeStreamMap['ReduceStep'];
+}
+
 module.exports = {
   connect,
   disconnect,
   getDB,
+  subscribeChanges,
 };

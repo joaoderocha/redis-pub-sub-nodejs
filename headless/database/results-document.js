@@ -1,6 +1,6 @@
 'use strict';
 
-const { getDB } = require('./connection');
+const { getDB,subscribeChanges } = require('./connection');
 
 module.exports = {
   cadastrar(dadosReduce){
@@ -12,5 +12,8 @@ module.exports = {
   update(query, data){
     return getDB().collection('ReduceStep').findOneAndUpdate(query, { $set: data }, { returnOriginal: false })
     .then(({ value: doc }) => doc);
+  },
+  watchDatabase(pipeline, options, action){
+    subscribeChanges(pipeline,options).on('change', action);
   }
 };
