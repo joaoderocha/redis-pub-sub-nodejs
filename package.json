@@ -7,12 +7,7 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "scripts": {
-    "load": "node -r dotenv/config headless/cli/load-step.js",
-    "clean": "node -r dotenv/config headless/cli/clean-step.js",
-    "word-clean": "node -r dotenv/config headless/cli/word-clean.js",
-    "lint": "prettier --write . && eslint --fix .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "word-counter": "node -r dotenv/config headless/cli/word-counter-step.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
