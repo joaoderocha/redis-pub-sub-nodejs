@@ -4,6 +4,8 @@ const { publish} = require('../redis/services/pub-sub');
 const { messageBuilder, getNextStep, roundRobinSubscribe, WORDCLEAN } = require('../utils');
 
 function wordCleanStep(channel, message) {
+  console.log({message});
+
   const {linha, queueIndex} = message;
 
   const novaLinha = removeStopWords(linha);
