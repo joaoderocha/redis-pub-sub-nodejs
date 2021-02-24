@@ -1,7 +1,7 @@
 'use strict';
 
-const { redisClient } = require('../../connection');
+const { redisClientPub } = require('../../connection');
 
-exports.publish = async (channel, message) => {
-      redisClient.publish(channel, JSON.stringify(message));
+exports.publish = (channel, message) => {
+      redisClientPub.publish(channel, JSON.stringify(message));
 };

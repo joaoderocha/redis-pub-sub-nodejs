@@ -3,11 +3,12 @@
 const redis = require('redis');
 
 const redisConfig = require('../config/redis');
-const redisClient = redis.createClient(redisConfig);
+const redisClientSub = redis.createClient(redisConfig);
+const redisClientPub = redis.createClient(redisConfig);
 
 const subscriptionMap = new Map();
 
-redisClient.on('message', async (channel, message) => {
+redisClientSub.on('message', async (channel, message) => {
   const action = subscriptionMap.get(channel);
 
   if (!action) {
@@ -20,6 +21,7 @@ const data = JSON.parse(message);
 });
 
 module.exports = {
-  redisClient,
+  redisClientPub,
+  redisClientSub,
   subscriptionMap
 };
