@@ -14,7 +14,9 @@ redisClient.on('message', async (channel, message) => {
 return;
 }
 
-  await action(channel, message);
+const data = JSON.parse(message);
+
+  await action(channel, data);
 });
 
 module.exports = {
