@@ -1,8 +1,8 @@
 {
-  "name": "redis-pub-sub-nodejs",
+  "name": "@joaoderocha/redis-pub-sub-nodejs",
   "version": "1.0.0",
   "description": "Simple client server application using redis with his cache and pub/sub services. ",
-  "main": "index.js",
+  "main": "headless/index.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
