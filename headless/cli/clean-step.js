@@ -1,9 +1,9 @@
 'use strict';
 
-const {services:{pubSub:{subscribe, publish}}} = require('../redis');
-const {termClean, messageBuilder, roundRobinSize, getNextStep} = require('../utils');
+const {services:{pubSub:{publish}}} = require('../redis');
+const {messageBuilder, getNextStep, roundRobinSubscribe, TERMCLEAN} = require('../utils');
 
-function action(channel, message) {
+function termCleanStep(channel, message) {
   const {linha, queueIndex} = message;
 
   const linhaSemAcentos = cleanTerms(linha);
@@ -23,6 +23,4 @@ function cleanPunctuation(linha) {
   return linha.replace(/[.*.,+?^${}()~!@#$:|[\]\\]/gi, '');
 }
 
-for (let index = 1; index <= roundRobinSize; index+=1) {
-  subscribe(termClean(index), action);
-}
+roundRobinSubscribe(TERMCLEAN, termCleanStep);
