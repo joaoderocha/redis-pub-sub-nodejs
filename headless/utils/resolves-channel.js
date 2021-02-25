@@ -32,19 +32,19 @@ const nextStep = {
 
 const previousStep = {
   load(roundRobinIndex){
-    return addSufix(prefixes.REDUCE,roundRobinIndex);
+    return addSufix(prefixes.LOAD,roundRobinIndex);
   },
   termClean(roundRobinIndex){
-    return addSufix(prefixes.LOAD, roundRobinIndex);
-  },
-  wordClean(roundRobinIndex){
     return addSufix(prefixes.TERMCLEAN, roundRobinIndex);
   },
-  wordCount(roundRobinIndex){
+  wordClean(roundRobinIndex){
     return addSufix(prefixes.WORDCLEAN, roundRobinIndex);
   },
-  reducer(roundRobinIndex){
+  wordCount(roundRobinIndex){
     return addSufix(prefixes.WORDCOUNT, roundRobinIndex);
+  },
+  reducer(roundRobinIndex){
+    return addSufix(prefixes.REDUCE, roundRobinIndex);
   }
 };
 
