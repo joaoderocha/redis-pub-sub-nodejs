@@ -25,7 +25,7 @@ const nextStep = {
   wordCount(roundRobinIndex){
     return addSufix(prefixes.REDUCE, roundRobinIndex);
   },
-  reducer(roundRobinIndex){
+  reduce(roundRobinIndex){
     return addSufix(prefixes.LOAD, roundRobinIndex);
   }
 };
@@ -43,7 +43,7 @@ const previousStep = {
   wordCount(roundRobinIndex){
     return addSufix(prefixes.WORDCOUNT, roundRobinIndex);
   },
-  reducer(roundRobinIndex){
+  reduce(roundRobinIndex){
     return addSufix(prefixes.REDUCE, roundRobinIndex);
   }
 };
