@@ -4,7 +4,7 @@ const { subscribe } = require('../redis/services/pub-sub');
 
 const { getPreviousStep } = require('./resolves-channel');
 
-const indexSize = 1;
+const indexSize = 3;
 
 exports.getRoundRobinIndex = function getRoundRobinIndex(index) {
   return index % indexSize + 1;
