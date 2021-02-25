@@ -13,7 +13,10 @@ module.exports = {
     return getDB().collection('ReduceStep').findOneAndUpdate(query, { $set: data }, { returnOriginal: false })
     .then(({ value: doc }) => doc);
   },
-  watchDatabase(pipeline, options, action){
+  findAndRemove(query){
+    return getDB().collection('ReduceStep').findAndModify({query, remove: true});
+  },
+  watchDatabase({pipeline, options, action}){
     subscribeChanges(pipeline,options).on('change', action);
   }
 };
