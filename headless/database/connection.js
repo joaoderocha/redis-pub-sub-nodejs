@@ -38,9 +38,23 @@ function subscribeChanges(pipeline = [], options = {}) {
   return changeStreamMap['ReduceStep'];
 }
 
+function lockDB() {
+  return new Promise((resolve) => {
+    resolve(db.fsyncLock());
+  });
+}
+
+function unlockDB() {
+  return new Promise((resolve)=>{
+    resolve(db.fsyncUnlock());
+  });
+}
+
 module.exports = {
   connect,
   disconnect,
   getDB,
   subscribeChanges,
+  lockDB,
+  unlockDB,
 };
